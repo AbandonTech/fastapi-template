@@ -3,6 +3,7 @@ version: "3"
 services:
 
   development:
+    platform: linux/x86_64
     env_file:
       - ".env"
     build:
