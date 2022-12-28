@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// generator
+generator client {
+  provider = "prisma-client-py"
+}
+
+// Sample Schema for tesing, will allow app to run with Prisma after first install
+model User {
+  id            Int                  @id @default(autoincrement())
+  username      String               @unique
+}
