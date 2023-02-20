@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    name: Runs pre-commit
+    name: Build docker image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
