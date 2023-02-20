@@ -13,6 +13,7 @@ prisma = "^0.7.1"
 [tool.poetry.dev-dependencies]
 flake8 = "^6.0.0"
 pre-commit = "^2.20.0"
+pyright = "^1.1.294"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
