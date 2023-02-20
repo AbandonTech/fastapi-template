@@ -20,8 +20,8 @@ modified or deleted to fit your app's needs prior to creating any migrations.
 This project is using [prisma](https://www.prisma.io/) as the ORM
 
 ### Pushing migrations to the database
-The migrations can be pushed to the running postgresql container using the 
-schema and migrations found in `./backend/database`. 
+The migrations can be pushed to the running postgresql container using the
+schema and migrations found in `./backend/database`.
 
 ```shell
 prisma db push --schema backend/prisma/prisma.schema
@@ -32,4 +32,11 @@ Migrations can be created by using this command, while the database is running.
 
 ```shell
 prisma migrate dev --schema backend/prisma/schema.prisma --name "what this change does"
+```
+
+## Pre-commit
+Install pre-commit to make sure you never fail linting in CI.
+
+```shell
+poetry run pre-commit install
 ```
