@@ -1,4 +1,4 @@
-# Abandon Tech FastAPI Template
+# Abandon Tech FastAPI + Prisma Template
 
 This is a template project for FastAPI using PostgreSQL as well as Prisma for ORM + database migrations.
 
