@@ -15,8 +15,7 @@ services:
     volumes:  # mount the source code as a volume, so we can use hot reloading
       - "./app:/app"
       - "./prisma:/prisma"
-    environment:
-      - "DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}"
+
 
   database:
     image: "postgres:${POSTGRES_VERSION}"
