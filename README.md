@@ -16,7 +16,7 @@ This project is using [prisma](https://www.prisma.io/) as the ORM
 
 ### Pushing migrations to the database
 
-The migrations can be pushed to the running postgresql container using the 
+The migrations can be pushed to the running postgresql container using the
 schema and migrations found in `./prisma/migrations`.
 
 ```shell
