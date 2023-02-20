@@ -13,7 +13,7 @@ services:
     depends_on:
       - database
     ports:
-      - "8000:8000"
+      - "8000:80"
     volumes:  # mount the source code as a volume, so we can use hot reloading
       - "./app:/app/app:ro"
       - "./prisma:/app/prisma:ro"
