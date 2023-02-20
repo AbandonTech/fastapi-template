@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      latest:
+        description: "If the container should be tagged as latest."
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  lint:
+    name: Runs pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Github Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN  }}
+
+      - name: Create SHA Container Tag
+        id: sha_tag
+        run: |
+          tag=$(cut -c 1-7 <<< $GITHUB_SHA)
+          echo "::set-output name=tag::$tag"
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/abandontech/fastapi-template:${{ steps.sha_tag.outputs.tag }}
+            ${{ inputs.latest && 'ghcr.io/abandontech/fastapi-template:latest' || '' }}

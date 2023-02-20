@@ -9,6 +9,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-
   linting:
     uses: ./.github/workflows/linting.yml
+
+  build-deploy:
+    uses: ./.github/workflows/build.yml
+    needs:
+      - linting

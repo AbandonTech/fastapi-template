@@ -5,6 +5,12 @@ on:
     branches: main
 
 jobs:
-
   linting:
     uses: ./.github/workflows/linting.yml
+
+  build:
+    uses: ./.github/workflows/build.yml
+    needs:
+      - linting
+    with:
+      latest: true
