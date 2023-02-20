@@ -2,21 +2,22 @@ version: "3"
 
 services:
 
-  development:
-    env_file:
-      - ".env"
+  app:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+      args: # Enables hot reloading
+        - uvicorn_extras=--reload
+    env_file:
+      - ".env"
     depends_on:
       - database
+    ports:
+      - "8000:80"
     volumes:  # mount the source code as a volume, so we can use hot reloading
-      - "./app:/app"
-      - "./prisma:/prisma"
-    environment:
-      - "DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}"
+      - "./app:/app/app:ro"
+      - "./prisma:/app/prisma:ro"
+
 
   database:
     image: "postgres:${POSTGRES_VERSION}"
@@ -28,7 +29,7 @@ services:
       timeout: 1s
       retries: 5
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     environment:
       - "POSTGRES_HOST=${POSTGRES_HOST}"
       - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
