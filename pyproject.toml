@@ -9,6 +9,7 @@ python = "^3.10"
 fastapi = "^0.92.0"
 uvicorn = "^0.20.0"
 prisma = "^0.8.1"
+pydantic = {extras = ["dotenv"], version = "^1.10.5"}
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
