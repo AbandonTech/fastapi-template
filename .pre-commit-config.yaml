@@ -19,7 +19,16 @@ repos:
         require_serial: true
 -   repo: local
     hooks:
-    -   id: prisma
+    -   id: prisma-format
+        name: Prisma Format
+        description: Run prisma formatter on schema
+        entry: poetry run prisma format
+        language: system
+        types: [python]
+        require_serial: true
+-   repo: local
+    hooks:
+    -   id: prisma-generate
         name: Prisma Generate
         description: Generate Prisma client before static analysis (pyright)
         entry: poetry run prisma generate --schema prisma/schema.prisma
