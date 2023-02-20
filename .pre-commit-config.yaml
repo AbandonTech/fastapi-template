@@ -17,3 +17,21 @@ repos:
         language: system
         types: [python]
         require_serial: true
+-   repo: local
+    hooks:
+    -   id: prisma
+        name: Prisma Generate
+        description: Generate Prisma client before static analysis (pyright)
+        entry: poetry run prisma generate --schema prisma/schema.prisma
+        language: system
+        types: [python]
+        require_serial: true
+-   repo: local
+    hooks:
+    -   id: pyright
+        name: Pyright
+        description: Run pyright static analysis
+        entry: poetry run pyright
+        language: system
+        types: [python]
+        require_serial: true
