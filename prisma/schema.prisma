@@ -10,6 +10,6 @@ generator client {
 
 // Sample Schema for tesing, will allow app to run with Prisma after first install
 model User {
-  id            Int                  @id @default(autoincrement())
-  username      String               @unique
+  id       Int    @id @default(autoincrement())
+  username String @unique
 }
