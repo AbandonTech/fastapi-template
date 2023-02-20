@@ -1,1 +1,1 @@
-from app.run import app  # noqa: F401 Unused import
+from app.main import app  # noqa: F401 Unused import
