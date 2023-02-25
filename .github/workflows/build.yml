@@ -8,9 +8,14 @@ on:
         type: boolean
         required: false
         default: false
+      push:
+        description: "If the built container should be pushed."
+        type: boolean
+        required: false
+        default: false
 
 jobs:
-  lint:
+  build:
     name: Build docker image
     runs-on: ubuntu-latest
     steps:
@@ -34,6 +39,7 @@ jobs:
           echo "::set-output name=tag::$tag"
 
       - name: Build and push
+        if: ${{ inputs.push }}
         uses: docker/build-push-action@v3
         with:
           context: .

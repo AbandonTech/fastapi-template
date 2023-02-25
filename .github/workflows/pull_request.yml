@@ -12,7 +12,7 @@ jobs:
   linting:
     uses: ./.github/workflows/linting.yml
 
-  build-deploy:
+  build:
     uses: ./.github/workflows/build.yml
     needs:
       - linting
