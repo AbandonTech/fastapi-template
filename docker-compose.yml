@@ -11,7 +11,8 @@ services:
     env_file:
       - ".env"
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     ports:
       - "8000:80"
     volumes:  # mount the source code as a volume, so we can use hot reloading
