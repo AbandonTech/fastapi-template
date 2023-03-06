@@ -26,4 +26,5 @@ ignore=
     B008,
 
 per-file-ignores=
+    # Ignore unused imports for __init__ files
     **/__init__.py:F401
