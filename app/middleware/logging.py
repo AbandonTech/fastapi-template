@@ -14,7 +14,7 @@ class _ContextFilter(logging.Filter):
         self.remote = remote
         self.request_line = request_line
 
-    def filter(self, record):
+    def filter(self, record) -> bool:
         record.levelprefix = record.levelname
         record.client_addr = self.remote
         record.request_line = self.request_line
