@@ -26,5 +26,4 @@ ignore=
     B008,
 
 per-file-ignores=
-    app/models/__init__.py:F401
-    app/routers/__init__.py:F401
+    **/__init__.py:F401
