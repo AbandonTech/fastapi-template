@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import Depends, FastAPI
 from prisma import Prisma
 
 from app.dependencies import use_logging
