@@ -31,8 +31,15 @@ prisma migrate dev --schema prisma/schema.prisma --name "what this change does"
 ```
 
 ## Pre-commit
+
 Install pre-commit to make sure you never fail linting in CI.
 
 ```shell
 poetry run pre-commit install
 ```
+
+## More Info
+
+If you would like to learn more, we provide guides and details about this template and the related technologies on our [blog](https://blog.abandontech.cloud/)
+
+Consider taking a look at our [guide for this template](https://blog.abandontech.cloud/easy-python-web-backend-using-fastapi-postgres-and-prisma/)
